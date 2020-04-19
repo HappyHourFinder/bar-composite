@@ -6,7 +6,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients
 
 @SpringBootApplication
 @EnableFeignClients
-class BarCompositeApplication
+open class BarCompositeApplication
 
 fun main(args: Array<String>) {
     runApplication<BarCompositeApplication>(*args)

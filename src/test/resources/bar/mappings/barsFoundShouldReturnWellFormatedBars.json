@@ -1,0 +1,14 @@
+{
+  "request" : {
+    "url" : "/",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "body" : "[{\"uuid\":\"1\",\"name\":\"Bar\",\"latitude\":1.0,\"longitude\":2.0},{\"uuid\":\"2\",\"name\":\"Other bar\",\"latitude\":2.0,\"longitude\":3.0}]",
+    "headers" : {
+      "Content-Type" : "application/json"
+    },
+    "transformers" : [ "response-template" ]
+  }
+}

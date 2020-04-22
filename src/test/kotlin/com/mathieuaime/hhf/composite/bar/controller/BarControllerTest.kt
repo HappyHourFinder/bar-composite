@@ -24,7 +24,7 @@ internal class BarControllerTest : CommonControllerTest() {
 
     @Test
     fun getBars() {
-        mockMvc.perform(MockMvcRequestBuilders.get("/")
+        mockMvc.perform(MockMvcRequestBuilders.get("/bars")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk)
                 .andExpect(MockMvcResultMatchers.jsonPath("$", Matchers.hasSize<Any>(2)))
@@ -40,7 +40,7 @@ internal class BarControllerTest : CommonControllerTest() {
 
     @Test
     fun getBar() {
-        mockMvc.perform(MockMvcRequestBuilders.get("/{uuid}", "1")
+        mockMvc.perform(MockMvcRequestBuilders.get("/bars/{uuid}", "1")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk)
                 .andExpect(MockMvcResultMatchers.jsonPath("$.bar.uuid", Matchers.`is`("1")))
@@ -51,7 +51,7 @@ internal class BarControllerTest : CommonControllerTest() {
 
     @Test
     fun getBarNotFound() {
-        mockMvc.perform(MockMvcRequestBuilders.get("/{uuid}", "0")
+        mockMvc.perform(MockMvcRequestBuilders.get("/bars/{uuid}", "0")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isNotFound)
     }
@@ -60,7 +60,7 @@ internal class BarControllerTest : CommonControllerTest() {
     fun saveBar() {
         val bar = Bar("1", "Bar 1", 1.0, 2.0)
 
-        mockMvc.perform(MockMvcRequestBuilders.post("/")
+        mockMvc.perform(MockMvcRequestBuilders.post("/bars")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(bar)))
                 .andExpect(MockMvcResultMatchers.status().isCreated)
@@ -72,7 +72,7 @@ internal class BarControllerTest : CommonControllerTest() {
 
     @Test
     fun deleteBar() {
-        mockMvc.perform(MockMvcRequestBuilders.delete("/{uuid}", "1")
+        mockMvc.perform(MockMvcRequestBuilders.delete("/bars/{uuid}", "1")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk)
     }

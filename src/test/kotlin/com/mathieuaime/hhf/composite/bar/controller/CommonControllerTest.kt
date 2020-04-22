@@ -19,28 +19,22 @@ import org.springframework.test.context.ContextConfiguration
 @AutoConfigureJsonTesters
 @ContextConfiguration(classes = [CommonControllerTest.LocalRibbonClientConfiguration::class])
 internal abstract class CommonControllerTest {
-    private lateinit var barMock: WireMockServer
-    private lateinit var happyHourMock: WireMockServer
+    private lateinit var wireMockServer: WireMockServer
 
     @BeforeEach
     fun proxyToWireMock() {
-        barMock = WireMockServer(WireMockConfiguration.options().port(9080).usingFilesUnderClasspath("bar"))
-        barMock.start()
-        happyHourMock = WireMockServer(WireMockConfiguration.options().port(9081).usingFilesUnderClasspath("happy-hour"))
-        happyHourMock.start()
+        wireMockServer = WireMockServer(WireMockConfiguration.options().port(9080))
+        wireMockServer.start()
     }
 
     @AfterEach
     fun noMoreWireMock() {
-        barMock.stop()
-        happyHourMock.stop()
+        wireMockServer.stop()
     }
 
     @TestConfiguration
     class LocalRibbonClientConfiguration {
         @Bean
-        fun ribbonServerList(): ServerList<Server> {
-            return StaticServerList(Server("localhost", 9080), Server("localhost", 9081))
-        }
+        fun ribbonServerList(): ServerList<Server> = StaticServerList(Server("localhost", 9080))
     }
 }

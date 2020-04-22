@@ -1,6 +1,6 @@
 {
   "request" : {
-    "url" : "/1",
+    "url" : "/bars/1",
     "method" : "DELETE"
   },
   "response" : {

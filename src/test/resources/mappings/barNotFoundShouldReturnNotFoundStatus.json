@@ -1,6 +1,6 @@
 {
   "request" : {
-    "url" : "/0",
+    "url" : "/bars/0",
     "method" : "GET"
   },
   "response" : {

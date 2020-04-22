@@ -1,6 +1,6 @@
 {
   "request" : {
-    "url" : "/",
+    "url" : "/bars",
     "method" : "POST",
     "headers" : {
       "Content-Type" : {

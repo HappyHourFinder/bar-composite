@@ -1,0 +1,10 @@
+{
+  "request" : {
+    "url" : "/bars/0",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 404,
+    "transformers" : [ "response-template" ]
+  }
+}

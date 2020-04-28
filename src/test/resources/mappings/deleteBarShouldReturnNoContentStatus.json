@@ -1,0 +1,10 @@
+{
+  "request" : {
+    "url" : "/bars/1",
+    "method" : "DELETE"
+  },
+  "response" : {
+    "status" : 204,
+    "transformers" : [ "response-template" ]
+  }
+}

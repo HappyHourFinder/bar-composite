@@ -9,10 +9,10 @@ import org.springframework.cloud.openfeign.FeignClient
 @FeignClient(value = "bar-service", fallback = BarApiFallback::class)
 @Headers("Content-Type: application/json")
 interface BarApi {
-    @RequestLine("GET /")
+    @RequestLine("GET /bars")
     fun get(): List<Bar>
 
-    @RequestLine("GET /{uuid}")
+    @RequestLine("GET /bars/{uuid}")
     fun getByUuid(@Param("uuid") uuid: String): Bar
 }
 

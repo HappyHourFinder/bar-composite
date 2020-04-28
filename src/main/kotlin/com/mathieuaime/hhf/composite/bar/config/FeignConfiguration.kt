@@ -8,10 +8,10 @@ import org.springframework.context.annotation.Configuration
 
 
 @Configuration
-class FeignConfiguration {
+open class FeignConfiguration {
     @Bean
-    fun feignContract(): Contract = Contract.Default()
+    open fun feignContract(): Contract = Contract.Default()
 
     @Bean
-    fun errorDecoder(): ErrorDecoder = FeignErrorDecoder()
+    open fun errorDecoder(): ErrorDecoder = FeignErrorDecoder()
 }

@@ -13,11 +13,11 @@ interface BarApi {
     fun get(): List<Bar>
 
     @RequestLine("GET /bars/{uuid}")
-    fun getByUuid(@Param("uuid") uuid: String): Bar
+    fun getByUuid(@Param("uuid") uuid: String): Bar?
 }
 
 private class BarApiFallback : BarApi {
     override fun get(): List<Bar> = emptyList()
 
-    override fun getByUuid(uuid: String): Bar = Bar(uuid, "", 0.0, 0.0)
+    override fun getByUuid(uuid: String): Bar? = null
 }

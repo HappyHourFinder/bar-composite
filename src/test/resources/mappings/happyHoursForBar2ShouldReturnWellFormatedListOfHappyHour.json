@@ -1,0 +1,14 @@
+{
+  "request" : {
+    "url" : "/happyhours?barUuid=2",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "body" : "[{\"uuid\":\"hh-2\",\"begin\":\"11:00:00\",\"end\":\"12:00:00\",\"barUuid\":\"2\"}]",
+    "headers" : {
+      "Content-Type" : "application/json"
+    },
+    "transformers" : [ "response-template" ]
+  }
+}

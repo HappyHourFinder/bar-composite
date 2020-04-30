@@ -4,6 +4,7 @@ import com.mathieuaime.hhf.composite.bar.model.Bar
 import com.mathieuaime.hhf.composite.bar.service.BarService
 import org.springframework.http.HttpStatus
 import org.springframework.http.MediaType
+import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
 @RequestMapping("/bars")
@@ -13,7 +14,7 @@ class BarController(private var barService: BarService) {
     fun getBar() = barService.get()
 
     @GetMapping("/{uuid}")
-    fun getBar(@PathVariable("uuid") uuid: String) = barService.getByUuid(uuid)
+    fun getBar(@PathVariable("uuid") uuid: String) = ResponseEntity.of(barService.getByUuid(uuid))
 
     @PostMapping(consumes = [MediaType.APPLICATION_JSON_VALUE])
     @ResponseStatus(HttpStatus.CREATED)

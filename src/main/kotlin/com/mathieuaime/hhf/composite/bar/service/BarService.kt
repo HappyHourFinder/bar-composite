@@ -5,12 +5,13 @@ import com.mathieuaime.hhf.composite.bar.client.HappyHourApi
 import com.mathieuaime.hhf.composite.bar.model.Bar
 import com.mathieuaime.hhf.composite.bar.model.BarAggregate
 import org.springframework.stereotype.Service
+import java.util.*
 
 @Service
 class BarService(private val barApi: BarApi, private val happyHourApi: HappyHourApi) {
     fun get() = barApi.get().map(this::compose)
 
-    fun getByUuid(uuid: String) = compose(barApi.getByUuid(uuid))
+    fun getByUuid(uuid: String): Optional<BarAggregate> = Optional.ofNullable(barApi.getByUuid(uuid)).map(this::compose)
 
     fun save(bar: Bar) = bar
 

@@ -1,0 +1,11 @@
+{
+  "request" : {
+    "url" : "/happyhours?barUuid=0",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "body" : "[]",
+    "transformers" : [ "response-template" ]
+  }
+}

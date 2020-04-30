@@ -9,7 +9,7 @@ import org.springframework.cloud.openfeign.FeignClient
 @FeignClient(value = "happy-hour-service", fallback = HappyHourApiFallback::class)
 @Headers("Content-Type: application/json")
 interface HappyHourApi {
-    @RequestLine("GET /?barUuid={barUuid}")
+    @RequestLine("GET /happyhours?barUuid={barUuid}")
     fun getByBarUuid(@Param("barUuid") barUuid: String): List<HappyHour>
 }
 

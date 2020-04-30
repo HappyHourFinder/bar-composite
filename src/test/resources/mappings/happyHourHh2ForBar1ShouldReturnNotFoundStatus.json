@@ -1,9 +1,0 @@
-{
-  "request": {
-    "url": "/happyhours/hh-2&barUuid=2",
-    "method": "GET"
-  },
-  "response": {
-    "status": 404
-  }
-}

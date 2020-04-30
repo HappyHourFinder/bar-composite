@@ -61,28 +61,6 @@ internal class BarControllerTest : CommonControllerTest() {
     }
 
     @Test
-    fun getHappyHours() {
-        mockMvc.perform(MockMvcRequestBuilders.get("/bars/{uuid}/happyhours", "1")
-                .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(MockMvcResultMatchers.status().isOk)
-                .andExpect(MockMvcResultMatchers.jsonPath("$[0].uuid").value(Matchers.`is`("hh-1")))
-                .andExpect(MockMvcResultMatchers.jsonPath("$[0].begin").value(Matchers.`is`("10:00:00")))
-                .andExpect(MockMvcResultMatchers.jsonPath("$[0].end").value(Matchers.`is`("11:00:00")))
-
-    }
-
-    @Test
-    fun getHappyHourByUuid() {
-        mockMvc.perform(MockMvcRequestBuilders.get("/bars/{uuid}/happyhours/{uuid}", "1", "hh-1")
-                .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(MockMvcResultMatchers.status().isOk)
-                .andExpect(MockMvcResultMatchers.jsonPath("$.uuid").value(Matchers.`is`("hh-1")))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.begin").value(Matchers.`is`("10:00:00")))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.end").value(Matchers.`is`("11:00:00")))
-
-    }
-
-    @Test
     fun saveBar() {
         val bar = Bar("1", "Bar 1", 1.0, 2.0)
 
